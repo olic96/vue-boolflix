@@ -1,16 +1,17 @@
 <template>
   <header>
-    <form class="example">
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+    <SearchBar/>
   </header>
 </template>
 
 <script>
+import SearchBar from '../sections/SearchBar.vue'
+
 export default {
+  components: { SearchBar },
     name:'BaseHeader',
 }
+
 </script>
 
 <style>
