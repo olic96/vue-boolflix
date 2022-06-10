@@ -1,7 +1,7 @@
 <template>
   <form class="searchbar" @submit.prevent="searching()">
         <input type="text" placeholder="Search.." name="search" v-model="search" required>
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <button type="submit" @keyup.enter="searching()"><i class="fa fa-search"></i></button>
     </form>
 </template>
 
@@ -29,6 +29,7 @@ export default {
                 }
             }).then((response) => {
                 share.movies = response.data.results;
+                this.search = '';
             }).catch((error) => {
                 console.log(error);
             })
@@ -42,6 +43,7 @@ export default {
                 }
             }).then((response) => {
                 share.series = response.data.results;
+                this.search = '';
             }).catch((error) => {
                 console.log(error);
             })
