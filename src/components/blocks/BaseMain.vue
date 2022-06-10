@@ -5,7 +5,7 @@
         <h3>{{movie.title}}</h3>
         <h4>{{movie.original_title}}</h4>
         <p>{{movie.vote_average}}</p>
-        <p>{{getFlag(movie.original_language)}}</p>
+        <img :src="getFlag(movie.original_language)">
       </li>
     </ul>
 
@@ -14,7 +14,7 @@
         <h3>{{serie.name}}</h3>
         <h4>{{serie.original_title}}</h4>
         <p>{{serie.vote_average}}</p>
-        <p>{{getFlag(serie.original_language)}}</p>
+        <img :src="getFlag(serie.original_language)">
       </li>
     </ul>
   </main> 
@@ -42,7 +42,17 @@ export default {
   methods: {
     getFlag(original_language) {
       if(original_language === 'en') {
-        return this.data.flag.en;
+        return this.flag.en;
+      } else if(original_language === 'it') {
+        return this.flag.it;
+      } else if(original_language === 'fr') {
+        return this.flag.fr;
+      } else if(original_language === 'de') {
+        return this.flag.de;
+      } else if(original_language === 'es') {
+        return this.flag.es;
+      } else {
+        return this.flag.globe;
       }
     }
   }
