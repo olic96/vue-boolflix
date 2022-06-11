@@ -1,16 +1,19 @@
 <template>
   <main>
+    <!-- movies -->
     <ul>
       <li v-for="movie in share.movies" :key="movie.id">
+        <img class="img_movie" :src="`https://image.tmdb.org/t/p/w185/${movie.poster_path}`">
         <h3>{{movie.title}}</h3>
         <h4>{{movie.original_title}}</h4>
         <p>{{movie.vote_average}}</p>
         <img :src="getFlag(movie.original_language)">
       </li>
     </ul>
-
-     <ul>
+  <!-- series -->
+    <ul>
       <li v-for="serie in share.series" :key="serie.id">
+        <img class="img_serie" :src="`https://image.tmdb.org/t/p/w185/${serie.poster_path}`">
         <h3>{{serie.name}}</h3>
         <h4>{{serie.original_title}}</h4>
         <p>{{serie.vote_average}}</p>
@@ -29,12 +32,12 @@ export default {
     return {
       share,
       flag: {
-        it:'https://it.wikipedia.org/wiki/Bandiera_d%27Italia#/media/File:Flag_of_Italy.svg',
-        en:'https://it.wikipedia.org/wiki/Bandiera_del_Regno_Unito#/media/File:Flag_of_the_United_Kingdom_(3-5).svg',
-        es:'https://it.wikipedia.org/wiki/Bandiera_della_Spagna#/media/File:Flag_of_Spain.svg',
-        de:'https://it.wikipedia.org/wiki/Bandiera_della_Germania#/media/File:Flag_of_Germany.svg',
-        fr:'https://it.wikipedia.org/wiki/Bandiera_della_Francia#/media/File:Flag_of_France_(1794–1815,_1830–1974,_2020–present).svg',
-        globe:'https://it.wikipedia.org/wiki/Bandiera_della_Terra#/media/File:Earth_Day_Flag.png',
+        it:'https://i.imgur.com/BA3s6G6.png',
+        en:'https://i.imgur.com/QW2YV9c.png',
+        es:'https://i.imgur.com/BsLeQa4.png',
+        de:'https://i.imgur.com/bhZ7aBe.png',
+        fr:'https://i.imgur.com/jwqFDsr.png',
+        globe:'https://i.imgur.com/jtA7EG1.jpeg',
       }
     }
   },
@@ -54,11 +57,19 @@ export default {
       } else {
         return this.flag.globe;
       }
-    }
+    },
   }
 }
 </script>
 
 <style>
+  img {
+    height: 0.625rem;
+    width: 0.9375rem;
+  }
 
+  .img_movie {
+    height: 300px;
+    width: 200px;
+  }
 </style>
