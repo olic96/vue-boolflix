@@ -38,5 +38,26 @@ export default {
 </script>
 
 <style>
-  
+main {
+  height: 100%;
+  background-color: #808080;
+  overflow-y: auto;
+}
+
+section {
+  height: 100vh;
+}
+
+h2 {
+  margin: 0.625rem;
+}
+
+ul {
+   display: flex;
+}
+
+ul li {
+  list-style: none;
+  margin: 0.625rem;
+}
 </style>

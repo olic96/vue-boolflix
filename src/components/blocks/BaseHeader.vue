@@ -1,5 +1,8 @@
 <template>
   <header>
+    <div class="logo">
+      BOOLFLIX
+    </div>
     <SearchBar/>
   </header>
 </template>
@@ -15,5 +18,14 @@ export default {
 </script>
 
 <style>
-
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #000000;
+}
+.logo {
+  color: #ff0000;
+  font-size: 1.875rem;
+  margin: 1.875rem 1.875rem;
+}
 </style>

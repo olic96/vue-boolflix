@@ -53,5 +53,7 @@ export default {
 </script>
 
 <style>
-
+.searchbar {
+    margin: 2.1875rem 1.875rem;
+}
 </style>

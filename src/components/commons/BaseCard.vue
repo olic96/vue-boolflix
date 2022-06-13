@@ -1,11 +1,12 @@
 <template>     
     <div class="card">
         <img class= "img_path" :src="`https://image.tmdb.org/t/p/w185/${info.poster_path}`">
-        <h3 v-if="info.title">{{info.title}}</h3>
-        <h3 v-else>{{info.name}}</h3>
-        <h4>{{info.original_title ? info.original_title : info.original_name }}</h4>
-        <span v-html="getStars(info.vote_average)"></span>
-        <img class="img_flag" :src="getFlag(info.original_language)">
+        <h3>{{info.title ? info.title : info.name}}</h3>
+        <div class="overlay">
+            <h4>{{info.original_title ? info.original_title : info.original_name }}</h4>
+            <span v-html="getStars(info.vote_average)"></span>
+            <img class="img_flag" :src="getFlag(info.original_language)">
+        </div>
     </div>
 </template>
 
@@ -63,9 +64,45 @@ export default {
 </script>
 
 <style>
+.card {
+    position: relative;
+    border: 0.0625rem solid whitesmoke;
+}
+
+h3 {
+    text-align: center;
+    margin: 0.3125rem;
+}
+
+h4, span {
+    margin: 0.3125rem;
+}
+
+
+.overlay {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    display: none; 
+}
+
+.card:hover .overlay {
+    display: block;
+    background-color: #000000;
+    color: #f0f8ff;
+}
+
+.card:hover {
+    opacity: 0.8;
+} 
+
 .img_flag {
     height: 0.625rem;
     width: 0.9375rem;
+    margin-left: 0.3125rem;
 }
 
 .img_path {
