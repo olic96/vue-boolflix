@@ -1,6 +1,7 @@
 <template>     
     <div class="card">
-        <img class= "img_path" :src="`https://image.tmdb.org/t/p/w185/${info.poster_path}`">
+        <img v-if="info.poster_path" class= "img_path" :src="`https://image.tmdb.org/t/p/w185/${info.poster_path}`">
+        <img v-else src="https://via.placeholder.com/200x300">
         <h3>{{info.title ? info.title : info.name}}</h3>
         <div class="overlay">
             <h4>{{info.original_title ? info.original_title : info.original_name }}</h4>
